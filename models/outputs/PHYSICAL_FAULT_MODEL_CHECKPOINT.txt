@@ -1,0 +1,12 @@
+﻿PHYSICAL-FAULT MODEL CHECKPOINT
+Candidate: HistGradientBoosting, eight features
+Training rows: 480
+Grouped folds: 3
+Mean fold accuracy: 75.21%
+Mean fold fault recall: 82.08%
+Combined healthy recall: 68.33%
+Combined fault recall: 82.08%
+Fold accuracy range: 41.88%-100%
+Status: Experimental; not production-validated.
+Limitation: Six bearings; bearing identity is confounded with class.
+Next requirement: Independent labeled bearing data.

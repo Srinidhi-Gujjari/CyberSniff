@@ -1,0 +1,43 @@
+CyberSniff Model Work Status
+============================
+
+1. CyberSniff model: trained and evaluated.
+2. Physical-fault models: trained and compared.
+3. Eight-feature experiment: completed.
+4. Best current candidate: HistGradientBoosting with eight features.
+5. Mean accuracy: 73.7%.
+6. Mean fault recall: 80.8%.
+7. KA05 fault recall: 75% (60 of 80 samples detected).
+
+Remaining work:
+- Validate on additional independent bearings.
+- Investigate bearing-specific differences.
+- Do not claim production readiness without further validation.
+
+Validation findings
+===================
+The dataset contains six bearing IDs with 80 samples each.
+Performance varies by held-out bearing.
+K002 and KA05 remain challenging for some or all candidate models.
+The current dataset does not provide additional independent bearings
+for external validation.
+Do not claim production readiness based on these results alone.
+
+Bearing-label limitation
+========================
+All samples from K001, K002, and K003 are Healthy.
+All samples from KA03, KA04, and KA05 are Physical_Fault.
+Bearing identity is therefore confounded with the class label.
+Leave-one-bearing-out results alone cannot establish robust
+generalization to independent unseen bearings.
+Independent labeled bearing data is needed for stronger validation.
+
+Eight-feature HistGradientBoosting grouped validation
+====================================================
+Mean fold accuracy: 75.21%.
+Mean fold fault recall: 82.08%.
+Combined out-of-fold fault recall: 82.08%.
+Combined out-of-fold healthy recall: 68.33%.
+Fold accuracy ranged from 41.88% to 100%.
+The model remains experimental. Independent bearing validation
+is required before production use.

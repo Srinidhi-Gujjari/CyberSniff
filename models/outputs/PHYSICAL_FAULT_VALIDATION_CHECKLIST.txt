@@ -1,0 +1,15 @@
+Physical-Fault Model Validation Checklist
+=========================================
+
+[ ] Verify results across all held-out bearings.
+[ ] Confirm which independent bearings or datasets are available.
+[ ] Investigate low-recall bearings, especially KA05.
+[ ] Validate on genuinely independent data before deployment.
+[ ] Compare any future improvements against the saved baseline.
+
+Current candidate: HistGradientBoosting with eight selected features.
+Reported mean accuracy: 73.7%.
+Reported mean fault recall: 80.8%.
+KA05 fault recall: 75%.
+
+These results are preliminary and do not establish production readiness.

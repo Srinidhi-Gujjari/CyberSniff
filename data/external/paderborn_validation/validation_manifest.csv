@@ -1,0 +1,3 @@
+bearing_id,expected_binary_label,validation_role
+K004,Healthy,unseen_bearing
+KI04,Physical_Fault,unseen_bearing

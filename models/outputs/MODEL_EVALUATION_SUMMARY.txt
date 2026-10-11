@@ -1,0 +1,27 @@
+CyberSniff Model Evaluation Summary
+==================================
+
+CyberSniff:
+- Model trained successfully.
+- Previously reported test accuracy: 100%.
+- Further validation is needed before claiming real-world reliability.
+
+Physical-fault detection:
+- Random Forest fails completely on unseen bearing KA05 (0% accuracy).
+- Extra Trees also fails on KA05 (0% accuracy).
+- HistGradientBoosting achieves 100% on KA03 and KA04, but 0% on KA05.
+- Performance varies substantially between held-out bearings.
+
+Conclusion:
+- Model training and evaluation scripts are implemented.
+- Physical-fault detection is not yet reliable across unseen bearings.
+- Further investigation and validation are required before deployment.
+
+Reduced-feature experiment (8 features)
+=======================================
+Random Forest: mean accuracy 69.4%, mean fault recall 72.1%.
+Extra Trees: mean accuracy 62.5%, mean fault recall 58.3%.
+HistGradientBoosting: mean accuracy 73.7%, mean fault recall 80.8%.
+Best current candidate: HistGradientBoosting with 8 selected features.
+KA05 fault recall: 75% (60 of 80 fault samples detected).
+Note: Requires further validation on unseen bearings before deployment.

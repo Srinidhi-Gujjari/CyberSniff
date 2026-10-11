@@ -1,0 +1,4 @@
+fold,test_bearings,train_recordings,test_recordings,accuracy,balanced_accuracy,fault_precision,fault_recall,fault_f1
+1,"K001,KA03",320,160,0.66875,0.66875,1.0,0.3375,0.5046728971962616
+2,"K002,KA04",320,160,0.39375,0.39375,0.4397163120567376,0.775,0.5610859728506787
+3,"K003,KA05",320,160,0.5,0.5,0.0,0.0,0.0

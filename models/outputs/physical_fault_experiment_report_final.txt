@@ -1,0 +1,22 @@
+CyberSniff Physical-Fault Model Experiment
+==========================================
+
+Baseline: Full-feature model comparison.
+Experiment: Eight selected features.
+
+Mean results:
+Random Forest: Accuracy 69.4%, Fault Recall 72.1%.
+Extra Trees: Accuracy 62.5%, Fault Recall 58.3%.
+HistGradientBoosting: Accuracy 73.7%, Fault Recall 80.8%.
+
+KA05 results:
+Random Forest: Accuracy 48.75%.
+Extra Trees: Accuracy 0%.
+HistGradientBoosting: Accuracy 75% (60 of 80 samples detected).
+
+Current best candidate:
+HistGradientBoosting using eight selected features.
+
+Limitations:
+Performance varies by bearing. Further independent validation is required.
+These results do not establish production readiness.

@@ -1,0 +1,36 @@
+# Redundant processed data
+data/processed/*backup*
+data/processed/X_train.csv
+data/processed/X_test.csv
+data/processed/y_train.csv
+data/processed/y_test.csv
+data/processed/combined_sensor_data.csv
+data/processed/paderborn_feature_preview.csv
+
+# Generated Python files
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+
+# Raw datasets
+data/raw/
+data/real/
+
+# Local backups and experimental checkpoints
+*.bak
+*.groupid.bak
+*.step4.bak
+models/checkpoints/
+
+# Backup scripts
+models/*backup*.py
+
+# Generated experiment outputs
+models/outputs/bearing_pair_tests/
+models/outputs/cybersniff/
+models/outputs/leave_one_bearing_out/
+models/outputs/shap/
+models/outputs/physical_fault_experiment_report.txt

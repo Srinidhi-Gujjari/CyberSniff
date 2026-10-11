@@ -1,0 +1,21 @@
+﻿CyberSniff - Eight-Feature HistGradientBoosting Validation
+=========================================================
+Dataset rows: 480
+Grouped folds: 3
+Mean fold accuracy: 75.21%
+Mean fold balanced accuracy: 75.21%
+Mean fold fault recall: 82.08%
+
+Combined out-of-fold results:
+Healthy correctly classified: 164
+Healthy incorrectly flagged as fault: 76
+Fault correctly detected: 197
+Fault missed: 43
+
+Fold accuracies:
+K001 + KA03: 100.00%
+K002 + KA04: 41.88%
+K003 + KA05: 83.75%
+
+Status: EXPERIMENTAL - NOT PRODUCTION VALIDATED
+Limitation: Only six bearings; bearing identity and class are confounded.
