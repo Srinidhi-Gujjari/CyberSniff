@@ -1,0 +1,4 @@
+fold,held_out_bearings,samples,accuracy,balanced_accuracy,fault_recall
+1,"K001,KA03",160,1.0,1.0,1.0
+2,"K002,KA04",160,0.6125,0.6125,0.7875
+3,"K003,KA05",160,0.875,0.875,0.75

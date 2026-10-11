@@ -1,0 +1,19 @@
+{
+  "model_type": "HistGradientBoostingClassifier",
+  "features": [
+    "vibration_1_peak_to_peak",
+    "vibration_1_min",
+    "vibration_1_max",
+    "vibration_1_kurtosis"
+  ],
+  "target": "label",
+  "classes": [
+    "Healthy",
+    "Physical_Fault"
+  ],
+  "training_rows": 480,
+  "training_data": "data/processed/paderborn_real_features.csv",
+  "training_scope": "All available rows; not a held-out evaluation model",
+  "sklearn_version": "1.8.0",
+  "validation_warning": "Bearing identity and class are confounded. Grouped cross-validation results are experimental, and production generalization is not established."
+}
