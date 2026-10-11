@@ -1,27 +1,38 @@
-CyberSniff Model Evaluation Summary
+﻿CyberSniff Model Evaluation Summary
 ==================================
 
 CyberSniff:
-- Model trained successfully.
+- Model training and evaluation scripts are implemented.
 - Previously reported test accuracy: 100%.
 - Further validation is needed before claiming real-world reliability.
 
-Physical-fault detection:
-- Random Forest fails completely on unseen bearing KA05 (0% accuracy).
-- Extra Trees also fails on KA05 (0% accuracy).
-- HistGradientBoosting achieves 100% on KA03 and KA04, but 0% on KA05.
-- Performance varies substantially between held-out bearings.
+Latest grouped-CV physical-fault comparison
+===========================================
+HistGradientBoosting, 4 features:
+- Mean fold accuracy: 82.92%.
+- Mean fold fault recall: 84.58%.
+- Combined out-of-fold accuracy: 82.92%.
+- Faults detected: 203/240; missed: 37/240.
+- Healthy samples correctly classified: 195/240.
+- False alarms on healthy samples: 45/240.
 
-Conclusion:
-- Model training and evaluation scripts are implemented.
-- Physical-fault detection is not yet reliable across unseen bearings.
-- Further investigation and validation are required before deployment.
+HistGradientBoosting, 8 features:
+- Mean fold accuracy: 75.21%.
+- Mean fold fault recall: 82.08%.
+- Faults detected: 197/240; missed: 43/240.
 
-Reduced-feature experiment (8 features)
-=======================================
-Random Forest: mean accuracy 69.4%, mean fault recall 72.1%.
-Extra Trees: mean accuracy 62.5%, mean fault recall 58.3%.
-HistGradientBoosting: mean accuracy 73.7%, mean fault recall 80.8%.
-Best current candidate: HistGradientBoosting with 8 selected features.
-KA05 fault recall: 75% (60 of 80 fault samples detected).
-Note: Requires further validation on unseen bearings before deployment.
+Historical comparison figures
+=============================
+An older experiment reported Random Forest at 69.4% accuracy and
+72.1% fault recall, Extra Trees at 62.5% and 58.3%, and
+eight-feature HistGradientBoosting at 73.7% and 80.8%.
+These historical figures are retained for context and are not
+directly comparable to the latest grouped-CV results without
+confirming that evaluation procedures match.
+
+Limitations
+===========
+All Healthy samples come from K001-K003; all Physical_Fault
+samples come from KA03-KA05. Bearing identity is confounded with
+class. Independent labeled bearing data is required before making
+claims of robust generalization or production readiness.

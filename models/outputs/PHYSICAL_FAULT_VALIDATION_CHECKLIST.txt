@@ -1,15 +1,32 @@
-Physical-Fault Model Validation Checklist
+﻿Physical-Fault Model Validation Checklist
 =========================================
 
 [ ] Verify results across all held-out bearings.
 [ ] Confirm which independent bearings or datasets are available.
-[ ] Investigate low-recall bearings, especially KA05.
+[ ] Investigate challenging bearings, including K002, KA04, and KA05.
 [ ] Validate on genuinely independent data before deployment.
-[ ] Compare any future improvements against the saved baseline.
+[ ] Compare future improvements using the same evaluation procedure.
+[ ] Re-run artifact smoke tests after any model artifact changes.
 
-Current candidate: HistGradientBoosting with eight selected features.
-Reported mean accuracy: 73.7%.
-Reported mean fault recall: 80.8%.
-KA05 fault recall: 75%.
+Current leading experimental candidate:
+HistGradientBoosting with four selected features.
 
-These results are preliminary and do not establish production readiness.
+Latest grouped-CV results:
+- Mean fold accuracy: 82.92%.
+- Mean fold fault recall: 84.58%.
+- Faults detected: 203/240.
+- Faults missed: 37/240.
+- Healthy samples correctly classified: 195/240.
+- False alarms on healthy samples: 45/240.
+
+Eight-feature HGB comparison:
+- Mean fold accuracy: 75.21%.
+- Mean fold fault recall: 82.08%.
+- Faults detected: 197/240.
+- Faults missed: 43/240.
+
+Important limitation:
+All Healthy samples belong to K001-K003 and all fault samples
+belong to KA03-KA05. Bearing identity is confounded with class.
+Independent labeled bearing data is required before deployment.
+These results do not establish production readiness.

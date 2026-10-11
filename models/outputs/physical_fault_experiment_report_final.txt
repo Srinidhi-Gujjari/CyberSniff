@@ -1,22 +1,36 @@
-CyberSniff Physical-Fault Model Experiment
+﻿CyberSniff Physical-Fault Model Experiment
 ==========================================
 
-Baseline: Full-feature model comparison.
-Experiment: Eight selected features.
+Latest experiment: grouped cross-validation comparing
+HistGradientBoosting with four and eight selected features.
 
-Mean results:
-Random Forest: Accuracy 69.4%, Fault Recall 72.1%.
-Extra Trees: Accuracy 62.5%, Fault Recall 58.3%.
-HistGradientBoosting: Accuracy 73.7%, Fault Recall 80.8%.
+Latest grouped-CV results:
+- HGB, 4 features: mean fold accuracy 82.92%;
+  mean fold fault recall 84.58%.
+- HGB, 8 features: mean fold accuracy 75.21%;
+  mean fold fault recall 82.08%.
 
-KA05 results:
-Random Forest: Accuracy 48.75%.
-Extra Trees: Accuracy 0%.
-HistGradientBoosting: Accuracy 75% (60 of 80 samples detected).
+Combined out-of-fold results:
+- HGB, 4 features: 203/240 faults detected; 37 missed.
+- HGB, 8 features: 197/240 faults detected; 43 missed.
 
-Current best candidate:
-HistGradientBoosting using eight selected features.
+Historical comparison (older experiment; not directly comparable
+without confirming identical evaluation procedures):
+- Random Forest: accuracy 69.4%, fault recall 72.1%.
+- Extra Trees: accuracy 62.5%, fault recall 58.3%.
+- Eight-feature HistGradientBoosting: accuracy 73.7%,
+  fault recall 80.8%.
+- Historical KA05 results: Random Forest accuracy 48.75%,
+  Extra Trees accuracy 0%, HistGradientBoosting detected
+  60/80 fault samples (75% recall).
+
+Current leading experimental candidate:
+HistGradientBoosting using four selected features, based on the
+latest grouped-CV metrics. This is not proof of independent
+generalization or production readiness.
 
 Limitations:
-Performance varies by bearing. Further independent validation is required.
-These results do not establish production readiness.
+K001-K003 contain only Healthy samples, while KA03-KA05 contain
+only Physical_Fault samples. Bearing identity is confounded with
+class. Further validation on independently labeled bearings is
+required.
