@@ -1,0 +1,59 @@
+﻿CyberSniff Model Status - Current
+================================
+
+Physical-fault model candidates:
+- Random Forest: existing 49-feature artifact.
+- HistGradientBoosting: existing 8-feature candidate.
+- HistGradientBoosting: new 4-feature candidate.
+
+Latest grouped cross-validation results:
+- 8-feature HGB mean accuracy: 75.21%.
+- 8-feature HGB mean fault recall: 82.08%.
+- 4-feature HGB mean accuracy: 82.92%.
+- 4-feature HGB mean fault recall: 84.58%.
+
+Four-feature out-of-fold counts:
+- Healthy correctly classified: 195 of 240.
+- Healthy incorrectly flagged as fault: 45.
+- Fault correctly detected: 203 of 240.
+- Fault missed: 37.
+
+Technical verification:
+- All three saved model artifacts loaded successfully.
+- All three produced two-class probability outputs.
+- Random Forest emitted a scikit-learn version compatibility warning:
+  saved with 1.9.1, currently loaded with 1.8.0.
+
+Current candidate:
+- Four-feature HistGradientBoosting is the leading experimental candidate
+  based on the latest grouped-fold metrics.
+- Existing artifacts remain separate and unchanged.
+
+Limitations:
+- Dataset contains 480 samples from six bearing IDs.
+- K001, K002, K003 are Healthy.
+- KA03, KA04, KA05 are Physical_Fault.
+- Bearing identity and class are confounded.
+- Independent labeled bearing validation is still required.
+- No candidate is production validated.
+
+Next actions:
+- Investigate bearing-specific errors.
+- Resolve or verify the Random Forest dependency version.
+- Obtain independent labeled bearing data if available.
+- Reconcile older evaluation reports after reviewing all results.
+
+Bearing-specific findings - 4-feature HGB
+=========================================
+K001: 80/80 healthy samples correctly classified.
+K002: 35/80 healthy samples correctly classified; 45 false alarms.
+K003: 80/80 healthy samples correctly classified.
+KA03: 80/80 faulty samples correctly detected.
+KA04: 63/80 faulty samples correctly detected; 17 missed.
+KA05: 60/80 faulty samples correctly detected; 20 missed.
+
+Interpretation:
+- K002 is the main source of healthy-sample false alarms.
+- KA04 and KA05 account for all 37 missed faulty samples.
+- Results vary by bearing; the model remains experimental.
+- These findings do not establish generalization to new bearings.
