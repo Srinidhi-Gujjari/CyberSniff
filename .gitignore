@@ -1,36 +1,28 @@
-# Redundant processed data
-data/processed/*backup*
-data/processed/X_train.csv
-data/processed/X_test.csv
-data/processed/y_train.csv
-data/processed/y_test.csv
-data/processed/combined_sensor_data.csv
-data/processed/paderborn_feature_preview.csv
-
-# Generated Python files
+# Python
 __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# React
+node_modules/
+frontend/dist/
+frontend/build/
+
+# Secrets
 .env
-.ipynb_checkpoints/
+.env.*
+
+# IDE and temporary files
+.vscode/
+.idea/
+*.log
 
 # Raw datasets
 data/raw/
+
+# Real datasets
 data/real/
 
-# Local backups and experimental checkpoints
-*.bak
-*.groupid.bak
-*.step4.bak
-models/checkpoints/
-
-# Backup scripts
-models/*backup*.py
-
-# Generated experiment outputs
-models/outputs/bearing_pair_tests/
-models/outputs/cybersniff/
-models/outputs/leave_one_bearing_out/
-models/outputs/shap/
-models/outputs/physical_fault_experiment_report.txt
+# Temporary backups
+models/outputs/report_backups/

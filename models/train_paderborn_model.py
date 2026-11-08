@@ -46,15 +46,31 @@ print(df["label"].value_counts())
 # 3. Prepare features and target
 # --------------------------------------------------
 
-# Metadata must not be used as model features.
-metadata = ["source_file", "bearing_id", "label"]
+# Exclude metadata and descriptive labels from the features.
+metadata = ["source_file", "bearing_id", "label", "damage_type"]
 
-X = df.drop(columns=metadata)
 y = df["label"]
+X = df.drop(columns=metadata, errors="ignore")
 
-# Replace infinite values and handle any missing features.
+# Keep numeric sensor features only.
+X = X.select_dtypes(include=["number"]).copy()
+
+# Replace infinite values and impute missing values.
 X = X.replace([float("inf"), float("-inf")], float("nan"))
+
+# Remove columns that contain no valid numeric values.
+X = X.dropna(axis=1, how="all")
+
+# Impute missing values using each feature's median.
 X = X.fillna(X.median())
+
+if X.empty:
+    raise ValueError("No numeric feature columns remain after preprocessing.")
+
+print("\nNumeric feature count:", X.shape[1])
+print("Target classes:", sorted(y.unique()))
+print("Remaining missing values:", int(X.isna().sum().sum()))
+
 
 # --------------------------------------------------
 # 4. Split into training and testing data

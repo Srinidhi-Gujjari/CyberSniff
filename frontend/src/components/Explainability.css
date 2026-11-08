@@ -1,0 +1,95 @@
+
+.xai-explanation {
+  margin-top: 24px;
+  color: #e5edff;
+}
+
+.xai-section h3,
+.xai-recommendations h3 {
+  color: #f1f5ff;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.xai-subtitle {
+  color: #91a6c7;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+.xai-factor {
+  background: #111b2e;
+  border: 1px solid #293b58;
+  border-radius: 9px;
+  padding: 15px;
+  margin-bottom: 11px;
+}
+
+.xai-factor h4 {
+  font-size: 13px;
+  color: #8dbaff;
+  margin: 0 0 8px;
+}
+
+.xai-factor p {
+  color: #b7c6dd;
+  font-size: 12px;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.xai-reading {
+  display: block;
+  color: #91a6c7;
+  font-size: 11px;
+  margin-bottom: 9px;
+}
+
+.xai-reading strong {
+  color: #f1f5ff;
+}
+
+.xai-positive,
+.xai-negative {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.xai-positive {
+  color: #43d6a0;
+}
+
+.xai-negative {
+  color: #ff8798;
+}
+
+.xai-recommendations {
+  margin-top: 20px;
+  padding: 17px;
+  background: #17243a;
+  border: 1px solid #304767;
+  border-radius: 9px;
+}
+
+.xai-recommendations h3 {
+  color: #8dbaff;
+}
+
+.xai-recommendations ul {
+  padding-left: 20px;
+  margin-bottom: 0;
+}
+
+.xai-recommendations li {
+  color: #c5d2e6;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.xai-disclaimer {
+  color: #8499b8;
+  font-size: 10px;
+  line-height: 1.6;
+  margin-top: 15px;
+}

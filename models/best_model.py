@@ -390,6 +390,51 @@ print("\nRefitting the selected model on all available data...")
 final_model = clone(models[winner_name])
 final_model.fit(X, y)
 
+
+# ============================================================
+# 7A. CREATE SHAP BACKGROUND DATASET
+# ============================================================
+
+print("\nCreating SHAP background dataset...")
+
+# Select representative samples only from the training split.
+background_sample = X_train.sample(
+    n=min(25, len(X_train)),
+    random_state=RANDOM_STATE
+).copy()
+
+# Replace infinite values with missing values.
+background_sample = background_sample.replace(
+    [np.inf, -np.inf],
+    np.nan
+)
+
+# Apply the fitted pipeline's imputer so the background
+# contains valid numeric values and no missing entries.
+imputer = final_model.named_steps["imputer"]
+
+background_imputed = imputer.transform(background_sample)
+
+background_df = pd.DataFrame(
+    background_imputed,
+    columns=feature_columns
+)
+
+# Save the background dataset.
+background_path = os.path.join(
+    OUTPUT_DIR,
+    "shap_background.csv"
+)
+
+background_df.to_csv(
+    background_path,
+    index=False
+)
+
+print("SHAP background saved:", background_path)
+print("Background samples:", len(background_df))
+print("Background features:", len(background_df.columns))
+
 best_model_path = os.path.join(
     OUTPUT_DIR, "best_model.joblib"
 )
